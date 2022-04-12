@@ -4,8 +4,8 @@ Route.group(() => {
   
   Route.group(() => {
     Route.post('/users', 'UsersController.store')
-    Route.delete('/users/:id', 'UsersControlle.destroy')
-    Route.patch('/users/:id', 'UsersControlle.updade')
+    Route.delete('/users/:id', 'UsersController.destroy')
+    Route.patch('/users/:id', 'UsersController.update')
   }).middleware('auth').middleware('admin')
 
   Route.group(() => {

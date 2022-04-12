@@ -2,13 +2,28 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Database from '@ioc:Adonis/Lucid/Database'
 import Vehicle from 'App/Models/Vehicle'
 import VehicleStatus from 'App/Models/VehicleStatus'
+import {schema} from '@ioc:Adonis/Core/Validator'
 
 
 
 export default class VehiclesController {
-    public async store({request, response}: HttpContextContract){
-        const body = request.body()
+    
+    private vehicleSchema = schema.create({
+        brand: schema.string({trim: true}),
+        model: schema.string({trim: true}),
+        year: schema.number(),
+        quilometer: schema.number(),
+        color: schema.string({trim: true}),
+        chassi: schema.string({trim: true}),
+        value: schema.number(),
+        status_id: schema.number.nullableAndOptional()
+    })
 
+    public async store({request, response}: HttpContextContract){
+        
+
+       
+        const body = await request.validate({schema: this.vehicleSchema})
         body.status_id = await (await VehicleStatus.findOrFail(request.headers().status_id)).id
 
         const vehicle = await Vehicle.create(body)
