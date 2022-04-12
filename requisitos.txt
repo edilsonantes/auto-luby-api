@@ -1,11 +1,11 @@
 AutoLuby
 
 REQUISITOS FUNCIONAIS
-    RF01 - CRUD de funcionários
+    OK - RF01 - CRUD de funcionários
     OK - Cadastro:
     Descrição:O usuário deve ser único, os campos podem ser descritos como: cpf, nome, email, avatar, biografia, senha.
 
-    Edição:
+    OK - Edição:
     Descrição: Deve ser possível editar um usuário.
 
     OK - Listagem:
@@ -14,16 +14,16 @@ REQUISITOS FUNCIONAIS
     OK - Visualizar:
     Descrição: Deve ser possível visualizar um único funcionário e as vendas/reservas de veículos deste.
 
-    Remoção:
+    OK - Remoção:
     Descrição: Deve ser possível remover um funcionário.
 
-    RF02 - Perfil de acesso (OPCIONAL)
+    OK - RF02 - Perfil de acesso (OPCIONAL)
     Descrição: sinta-se à vontade para realizar essa tarefa e use sua criatividade, você poderá utilizar perfis de acesso e atribuir funções para tipos de funcionários (administrador, vendedor).
 
-    RF03 - Autenticação
+    OK - RF03 - Autenticação
     Descrição: deve ser possível fazer a autenticação no sistema e dividir as rotas públicas das privadas
 
-    RF04 - Crud de Veículo
+    OK - RF04 - Crud de Veículo
     OK - Adquirir veículo:
     Descrição: o proprietário poderá adquirir veículos para sua loja. O veículo deve ser único, os campos podem ser descritos como: marca, modelo, ano, km, cor, chassi e preço de compra.
 
@@ -57,4 +57,4 @@ REQUISITOS NÃO FUNCIONAIS
 
     OK - RNF04 - Gostaríamos de ver a utilização de typescript (OPCIONAL)
 
-    RNF05 - Gostaríamos que os campos necessários para os endpoints fossem validados na requisição. (OPCIONAL)
+    OK - RNF05 - Gostaríamos que os campos necessários para os endpoints fossem validados na requisição. (OPCIONAL)
