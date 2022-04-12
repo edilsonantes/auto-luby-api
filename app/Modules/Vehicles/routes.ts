@@ -6,4 +6,4 @@ Route.group(() => {
   
   Route.get('/vehicles/filter/:status_id', 'VehiclesController.filter')
 
-}).prefix('/api')
+}).prefix('/api').middleware('auth')

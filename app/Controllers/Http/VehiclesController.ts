@@ -1,5 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Database from '@ioc:Adonis/Lucid/Database'
+import Vehicle from 'App/Models/Vehicle'
+import VehicleStatus from 'App/Models/VehicleStatus'
 
 
 
@@ -7,16 +9,9 @@ export default class VehiclesController {
     public async store({request, response}: HttpContextContract){
         const body = request.body()
 
-        body.status_id = (await Database
-                                .from('vehicle_statuses')
-                                .select('id')
-                                .where('id', `${request.headers().status_id}`)
-                                .first()).id
-    
+        body.status_id = await (await VehicleStatus.findOrFail(request.headers().status_id)).id
 
-        const vehicle = await Database
-                                .table('vehicles')
-                                .insert(body)
+        const vehicle = await Vehicle.create(body)
 
         response.status(201)
         
@@ -38,18 +33,12 @@ export default class VehiclesController {
     }
 
     public async show({params}: HttpContextContract){
-        const vehicle = await Database
-                                .from('vehicles')
-                                .where('id', params.id)
-
+        const vehicle = await Vehicle.findOrFail(params.id)
         return vehicle
     }
 
     public async destroy({params}: HttpContextContract){
-        const vehicle = await Database
-                                .from('vehicles')
-                                .where('id', params.id)
-                                .delete()
+        const vehicle = await Vehicle.findOrFail(params.id)
         
         return{
             message: "Veículo deletado com sucesso!",

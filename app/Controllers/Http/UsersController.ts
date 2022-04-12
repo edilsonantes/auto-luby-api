@@ -4,6 +4,8 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Application from '@ioc:Adonis/Core/Application'
 import Database from '@ioc:Adonis/Lucid/Database'
+import User from 'App/Models/User'
+
 
 export default class UsersController {
     private validationOptions = {
@@ -16,7 +18,6 @@ export default class UsersController {
         body.admin = false
         
         const avatar = request.file('avatar', this.validationOptions)
-
         if(avatar){
             const avatarName = `${uuidv4()}.${avatar.extname}`
 
@@ -27,9 +28,7 @@ export default class UsersController {
             body.avatar = avatarName
         }
 
-        const user = await Database
-                            .table('users')
-                            .insert(body)
+        const user = await User.create(body)
         response.status(201)
 
         return {
@@ -50,18 +49,15 @@ export default class UsersController {
     }
 
     public async show({params}: HttpContextContract){
-        const user = await Database
-                            .from('users')
-                            .where('id', params.id)
+        const user = await User.findOrFail(params.id)
 
         return user
     }
 
     public async destroy({params}: HttpContextContract){
-        const user = await Database
-                                .from('users')
-                                .where('id', params.id)
-                                .delete()
+        const user = await User.findOrFail(params.id)
+
+        await user.delete();
         
         return{
             message: "Usuário deletado com sucesso!",

@@ -6,9 +6,7 @@ export default class VehicleStatuses extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table
-        .string('description')
-        .notNullable()
+      table.string('description').notNullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

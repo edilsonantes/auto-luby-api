@@ -6,39 +6,17 @@ export default class Vehicles extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      
-      table
-        .string('brand')
-        .notNullable()
-      
-      table
-        .string('model')
-        .notNullable()
-      
-      table
-        .integer('year')
-        .notNullable()
-      
-      table
-        .float('quilometer')
-        .notNullable()
-      
-      table
-        .string('color')
-        .notNullable()
-      
-      table
-        .string('chassi')
-        .notNullable()
-      
-      table
-        .float('value')
-        .notNullable()
-      
+      table.string('brand').notNullable()
+      table.string('model').notNullable()
+      table.integer('year').notNullable()
+      table.float('quilometer', .1).notNullable()
+      table.string('color').notNullable()
+      table.string('chassi').notNullable()
+      table.float('value').notNullable()
       table
         .integer('status_id')
-        //.unsigned()
-        //.notNullable()
+        .unsigned()
+        .notNullable()
         .references('id')
         .inTable('vehicle_statuses')
 
