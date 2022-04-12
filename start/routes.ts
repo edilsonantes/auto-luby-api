@@ -18,8 +18,11 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
+import 'App/Modules/Vehicles/routes'
+import 'App/Modules/VehicleStatus/routes'
+import 'App/Modules/Auth/routes'
+import 'App/Modules/Users/routes'
+import 'App/Modules/Sales/routes'
+import 'App/Modules/Bookings/routes'
+

@@ -1,0 +1,60 @@
+AutoLuby
+
+REQUISITOS FUNCIONAIS
+    OK - RF01 - CRUD de funcionários
+    OK - Cadastro:
+    Descrição:O usuário deve ser único, os campos podem ser descritos como: cpf, nome, email, avatar, biografia, senha.
+
+    OK - Edição:
+    Descrição: Deve ser possível editar um usuário.
+
+    OK - Listagem:
+    Descrição: Deve ser possível listar todos os funcionários (Gostaríamos de ver paginado, porém, é opcional)
+
+    OK - Visualizar:
+    Descrição: Deve ser possível visualizar um único funcionário e as vendas/reservas de veículos deste.
+
+    OK - Remoção:
+    Descrição: Deve ser possível remover um funcionário.
+
+    OK - RF02 - Perfil de acesso (OPCIONAL)
+    Descrição: sinta-se à vontade para realizar essa tarefa e use sua criatividade, você poderá utilizar perfis de acesso e atribuir funções para tipos de funcionários (administrador, vendedor).
+
+    OK - RF03 - Autenticação
+    Descrição: deve ser possível fazer a autenticação no sistema e dividir as rotas públicas das privadas
+
+    OK - RF04 - Crud de Veículo
+    OK - Adquirir veículo:
+    Descrição: o proprietário poderá adquirir veículos para sua loja. O veículo deve ser único, os campos podem ser descritos como: marca, modelo, ano, km, cor, chassi e preço de compra.
+
+    OK - Listar veículo:
+    Descrição: Listagem de todos veículos.
+
+    OK - Mostrar veículo:
+    Descrição: Listagem de um único veículo.
+
+    OK -  Remover veículo:
+    Descrição: Deve ser possível remover um veículo.
+
+    OK - RF05 - Filtrar veículos pelo status (OPCIONAL)
+    Descrição: você pode filtrar veículos vendidos ou disponíveis
+
+    RF06 - Vender veículo
+    Descrição: ao realizar esta ação, informações como: data, status do veículo, valor da venda e quem vendeu, devem ser armazenadas no banco.
+
+    RF07 - Reservar veículo
+    Descrição: ao realizar esta ação, informações como: data, valor da reserva e quem vendeu, devem ser armazenadas no banco.
+
+    RF08 - Formatar todas as datas apresentadas ao usuário (OPCIONAL)
+    Descrição: todas as datas deverão estar no formato DD/MM/yyyy
+
+REQUISITOS NÃO FUNCIONAIS
+    OK - Adonis RNF01 - A aplicação deverá ser feita utilizando Express com o (Sequelize) ou AdonisJs.
+
+    OK - RNF02 - Utilização de Migrations
+
+    OK - RNF03 - Utilização de Models
+
+    OK - RNF04 - Gostaríamos de ver a utilização de typescript (OPCIONAL)
+
+    OK - RNF05 - Gostaríamos que os campos necessários para os endpoints fossem validados na requisição. (OPCIONAL)
