@@ -21,5 +21,6 @@
 
 import 'App/Modules/Vehicles/routes'
 import 'App/Modules/VehicleStatus/routes'
-
+import 'App/Modules/Auth/routes'
+import 'App/Modules/Users/routes'
 

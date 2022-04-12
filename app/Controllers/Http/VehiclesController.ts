@@ -5,15 +5,14 @@ import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class VehiclesController {
     public async store({request, response}: HttpContextContract){
-        var body = request.body()
+        const body = request.body()
 
-        const aux_id = await Database
+        body.status_id = (await Database
                                 .from('vehicle_statuses')
                                 .select('id')
                                 .where('id', `${request.headers().status_id}`)
-                                .first()
+                                .first()).id
     
-        body.status_id = aux_id.id
 
         const vehicle = await Database
                                 .table('vehicles')
@@ -62,13 +61,12 @@ export default class VehiclesController {
         const body = request.body()
 
         if (request.headers().status_id){
-            const aux_id = await Database
+            body.status_id = (await Database
                                     .from('vehicle_statuses')
                                     .select('id')
                                     .where('id', `${request.headers().status_id}`)
-                                    .first()
+                                    .first()).id
         
-            body.status_id = aux_id.id
         }
 
         const vehicle = await Database
